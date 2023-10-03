@@ -9,15 +9,22 @@ import SwiftUI
 
 struct CalcButton: View {
     
+    @Binding var first: String
+    @Binding var second: Int
+    @Binding var operation: String
+    
     var body: some View {
         Button(action: calculate) {
             Text("Oblicz").font(.largeTitle)
         }.frame(width: 315, height: 60).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
     }
     
-    func calculate() {}
+    func calculate() {
+        
+    }
 }
 
 #Preview {
-    CalcButton()
+    CalcButton(first:.constant(""), second:.constant(0), operation:.constant(""))
+    //CalcButton()
 }

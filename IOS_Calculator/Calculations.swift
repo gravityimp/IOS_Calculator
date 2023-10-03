@@ -26,4 +26,8 @@ struct Calculations {
         }
         return Double(a / b)
     }
+    
+    func mySin(a: Int) -> Double {
+        return sin(Double(a))
+    }
 }
