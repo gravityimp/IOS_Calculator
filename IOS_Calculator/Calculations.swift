@@ -8,26 +8,26 @@
 import Foundation
 
 struct Calculations {
-    func add(a: Int, b: Int) -> Int {
+    func add(a: Double, b: Double) -> Double {
         return a + b;
     }
     
-    func subtract(a: Int, b: Int) -> Int {
+    func subtract(a: Double, b: Double) -> Double {
         return a - b;
     }
     
-    func multiply(a: Int, b: Int) -> Int {
+    func multiply(a: Double, b: Double) -> Double {
         return a * b;
     }
     
-    func divide(a: Int, b: Int) -> Double {
+    func divide(a: Double, b: Double) -> Double? {
         if(b == 0) {
-            return Double(0)
+            return nil
         }
         return Double(a / b)
     }
     
-    func mySin(a: Int) -> Double {
+    func mySin(a: Double) -> Double {
         return sin(Double(a))
     }
 }

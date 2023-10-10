@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var result: String = ""
-    @State var memo: Int = 0
+    @State var memo: String = ""
     @State var selectedOperation: String = ""
     
     var body: some View {
@@ -91,12 +91,14 @@ struct ContentView: View {
                 }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 Button(action: {
                     selectedOperation = "+"
+                    handleOperation()
                     return
                 }) {
                     Text("+").frame(width: 100, height: 60).font(.largeTitle)
                 }.border(Color.black)
                 Button(action: {
                     selectedOperation = "-"
+                    handleOperation()
                     return
                 }) {
                     Text("-").frame(width: 100, height: 60).font(.largeTitle)
@@ -106,31 +108,35 @@ struct ContentView: View {
             HStack {
                 Button(action: {
                     selectedOperation = "*"
+                    handleOperation()
                     return
                 }) {
                     Text("*").frame(width: 100, height: 60).font(.largeTitle)
                 }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 Button(action: {
-                    selectedOperation = "*"
+                    selectedOperation = "/"
+                    handleOperation()
                     return
                 }) {
                     Text("/").frame(width: 100, height: 60).font(.largeTitle)
                 }.border(Color.black)
                 Button(action: {
                     selectedOperation = "sin"
+                    handleOperation()
                     return
                 }) {
                     Text("sin").frame(width: 100, height: 60).font(.largeTitle)
                 }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             }
             
-            CalcButton(first: $result, second: $memo, operation: $selectedOperation)
+            CalcButton(first: $memo, second: $result, operation: $selectedOperation)
         }
         .padding()
     }
     
-    func test() {
-        
+    func handleOperation() {
+        memo = result
+        result = ""
     }
 }
 
